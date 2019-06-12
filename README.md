@@ -1,2 +1,2 @@
 # Mobistore247
-Web site d'achat les dispositif technologiques en ligne.
+Site web d'achat les dispositif technologiques en ligne.
