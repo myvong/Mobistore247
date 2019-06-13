@@ -1,0 +1,79 @@
+.flex-header
+{
+  background-color: yellow;
+  /* margin-top: 10px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  /* border: 0.2px solid black; */
+}
+.btn-search
+{
+  color: purple;
+  border-radius: 2px solid purple;
+  border-color: purple;
+}
+.btn-search:hover, .btn-search:focus, .btn-search:active
+{
+  background-color: #884EA0;
+}
+.logo
+{
+  width: 70px;
+  height: 70px;
+  display: block;
+  background-repeat: no-repeat;
+}
+
+.nav-icon
+{
+  margin: auto;  
+  display: block;
+  height: 40px;
+}
+
+.item-name
+{
+  font-size: 0.85em;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar-nav .nav-item:hover, .active
+{
+  background-color: #D7BDE2;
+}
+
+.navbar
+{
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+.connection
+{
+  color: whitesmoke;
+  background-color: #884EA0;
+}
+
+.card-text ul
+{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.lazy-img
+{
+  max-height: 200px;
+  max-width: 200px;
+  align-self: center;
+}
+.product-category h2 a
+{
+  text-decoration: none;
+  font-size: 20px;
+  color: #3d3d3d;
+  text-transform: uppercase;
+}
