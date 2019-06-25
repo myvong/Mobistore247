@@ -1,42 +1,14 @@
 <div class="row">
+    {{# each products}}
     <div class="col-sm-6 col-md-3">
         <div class="thumbnail">
-            <img src="">
+            <img src="{{this.imageUrl}}">
             <div class="caption">
-                <h3>Mobile</h3>
-                <p class="price">200d</p>
-                <div class="specification">dt dep</div>
+                <h3>{{this.title}}</h3>
+                <p class="price">{{this.price}}d</p>
+                <div class="specification">{{this.description}}</div>
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-            <img src="">
-            <div class="caption">
-                <h3>Mobile</h3>
-                <p class="price">200d</p>
-                <div class="specification">dt dep</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-            <img src="">
-            <div class="caption">
-                <h3>Mobile</h3>
-                <p class="price">200d</p>
-                <div class="specification">dt dep</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-            <img src="">
-            <div class="caption">
-                <h3>Mobile</h3>
-                <p class="price">200d</p>
-                <div class="specification">dt dep</div>
-            </div>
-        </div>
-    </div>
+    {{/each}}
 </div>

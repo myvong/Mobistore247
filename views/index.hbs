@@ -1,37 +1,12 @@
-<div class="product-containter">
+<div class="product-container">
   <div class="product-category">
     <h2>
       <a href="phone.html" title="Điện thoại hot nhất">Điện thoại hot nhất</a>
     </h2>
   </div>
   <div class="phone-container">
-    <div class="row">
-      {{# each products}}
-        <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
-                <img src="{{this.imageUrl}}">
-                <div class="caption">
-                    <h3>{{this.title}}</h3>
-                    <p class="price">{{this.price}}d</p>
-                    <div class="specification">{{this.description}}</div>
-                </div>
-            </div>
-        </div>
-      {{/each}}
-  </div>
-  <div class="row">
-      {{# each products}}
-        <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
-                <img src="{{this.imageUrl}}">
-                <div class="caption">
-                    <h3>{{this.title}}</h3>
-                    <p class="price">{{this.price}}d</p>
-                    <div class="specification">{{this.description}}</div>
-                </div>
-            </div>
-        </div>
-      {{/each}}
-  </div>
+    {{# each products}}
+      {{> productrow products=this}}
+    {{/each}}
   </div>
 </div>
