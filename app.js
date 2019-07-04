@@ -9,16 +9,19 @@ const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', expresHbs({
   defaultLayout: 'layout',
   extname: '.hbs',
   partialsDir: [
-    'views/partials'
+    'views/partials',
+    'views/admin',
+    'views'
   ]
 }));
 app.set('view engine', 'hbs');
@@ -47,9 +50,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-
-app.use('/', indexRouter);
+app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
+app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

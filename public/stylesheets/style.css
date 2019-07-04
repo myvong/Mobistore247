@@ -1,3 +1,10 @@
+@media (min-width: 1200px)
+{
+  .container {
+    max-width: 1225px;
+  }
+}
+
 .flex-header
 {
   background-color: yellow;
@@ -52,12 +59,6 @@
   padding-bottom: 0rem;
 }
 
-.connection
-{
-  color: whitesmoke;
-  background-color: #884EA0;
-}
-
 .card-text ul
 {
   list-style-type: none;
@@ -76,4 +77,171 @@
   font-size: 20px;
   color: #3d3d3d;
   text-transform: uppercase;
+}
+body
+{
+  background-color: #f3f3f3;
+}
+
+.thumbnail
+{
+  background: white;
+  /* background-clip: conntent-box; */
+}
+
+.thumbnail:hover
+{
+  /* outline: 5px solid black; */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.connection
+{
+  color: whitesmoke;
+  background-color: #884EA0;
+}
+
+.phone-container
+{
+  margin-right: 0px;
+  background-color: #fff;
+}
+
+.area-buy
+{
+  margin-right: 5px;
+}
+
+#img-phone
+{
+  height: 350px;
+  width: 370px;
+  background: white;
+  margin-right: 5px;
+}
+
+.area-price 
+{
+  display: inline-block;
+  overflow: hidden;
+  font-size: 26px;
+  color: #e10c00;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: 2px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #f3f3f3;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 14px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #f2f2f2;
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#myBtn
+{
+  background-color: #f2f2f2;
+  font-size: 14px;
+  border-radius: 2%;
+}
+
+#promo-title
+{
+  font-size: 18px;
+  display: block;
+  background-color: yellow;
+  border-bottom: 1px black dotted;
+}
+
+.area-promo
+{
+  border: 1px black dotted;
+}
+
+.list-promo
+{
+  margin-left: 5px;
+  background-color: white;
+  padding-inline-start: 20px;
+}
+
+#quantity
+{
+  font-size: 12px;
+  width: 45px;
+}
+
+.policy
+{
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.list-policy
+{
+  list-style: none;
+}
+
+.carousel-image
+{
+  align-content: center;
+}
+
+.specification-detail
+{
+  padding-left: 30px;
+}
+
+.specification ul
+{
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+.specification ul li label
+{
+  width: 100px;
+}
+
+.form-cart
+{
+  background-color: #fff;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-review
+{
+  max-width: 90px;
 }
