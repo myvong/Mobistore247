@@ -245,3 +245,7 @@ body
 {
   max-width: 90px;
 }
+
+input:focus {
+  background-color: red;
+}

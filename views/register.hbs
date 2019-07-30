@@ -1,0 +1,76 @@
+<div class="container">
+  <div id="register" class="col-md-6 offset-md-3">
+    <form id="register-form" class="form-horizontal" onsubmit="return validateRegister()" method="POST" action="/register">
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend>Register</legend>
+
+    <!-- Text input-->
+    <div class="form-group row">
+      <label class="col-md-3 control-label" for="txtUsername">Username</label>  
+      <div class="col-md-9">
+      <input id="txtusername" name="txtusername" type="text" placeholder="Nhập tên đăng nhập" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group row">
+      <label class="col-md-3 control-label" for="textinput">Fullname</label>  
+      <div class="col-md-9">
+      <input id="txtfullname" name="txtfullname" type="text" placeholder="Nhập họ và tên" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group row">
+      <label class="col-md-3 control-label" for="textinput">Email</label>  
+      <div class="col-md-9">
+      <input id="txtemail" name="txtemail" type="text" placeholder="Nhập email" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group row">
+      <label class="col-md-3 control-label" for="">Phone number</label>  
+      <div class="col-md-9">
+      <input id="txtphonenumber" name="txtphonenumber" type="text" placeholder="Nhập số điện thoại" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+
+    <!-- Password input-->
+    <div class="form-group row">
+      <label class="col-md-3 control-label" for="txtpassword">Password</label>
+      <div class="col-md-9">
+        <input id="txtpassword" name="txtpassword" type="password" placeholder="Nhập mật khẩu" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+
+    <!-- Password input-->
+    <div class="form-group row">
+      <label class="col-md-3 control-label" for="passwordinput">Comfirm password</label>
+      <div class="col-md-9">
+        <input id="txtpasswordconfirm" name="txtpasswordconfirm" type="password" placeholder="Xác nhận lại mật khẩu" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+        <button id="btnregister"
+                type="submit"
+                name="btnregister"
+                class="btn btn-primary"
+                style="width: 100%">Đăng kí</button>
+    </div>
+    <div>
+      <p>Đã có tài khoản? <a href="/login">Đăng nhập</a></p>
+    </div>
+    </fieldset>
+    </form>
+</div>
+</div>
