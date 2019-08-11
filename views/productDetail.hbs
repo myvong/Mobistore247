@@ -1,14 +1,14 @@
-<div class="phone-container container">
-  <h4 class="name-phone">Điện thoại Samsung Galaxy A10</h4>
+<div class="container phone-container">
+  <h4 class="name-phone">{{product.title}}</h4>
   <hr>
   <div class="row">
     <div class="col-lg-4 phone">
-      <img id="img-phone" src="https://cdn.fptshop.com.vn/Uploads/Originals/2019/2/21/636863636051023338_ss-galaxy-s10-plus-den-1.png" alt="dt">
+      <img id="img-phone" src="{{product.imageUrl}}" alt="dt">
     </div>
     
     <div class="col-lg-5 area-buy" bgcolor="#fff" style="margin-left: 10px; padding-right: 5px;">
       <div class="area-price">
-        <strong>3.090.000 ₫</strong>
+        <strong>{{product.price}}₫</strong>
       </div>
       <br>
       <!-- Trigger/Open The Modal -->
@@ -46,21 +46,21 @@
           <div class="col-xs-4" style="padding: 0">
             <div class="input-group number-spinner">
               <span class="input-group-btn">
-                <button class="btn btn-default" data-dir="dwn"><span class="fa fa-minus"></span></button>
+                <button class="btn btn-default" data-dir="dwn" onclick="setQuantity('down');"><span class="fa fa-minus"></span></button>
               </span>
-              <div id="quantity">
-                <input type="text"class="form-control text-center" style="padding: 0px" value="1">
+              <div>
+                <input type="text" id="quantity" class="form-control text-center" style="padding: 0px" value="1">
               </div>
               <span class="input-group-btn">
-                <button class="btn btn-default" data-dir="up"><span class="fa fa-plus"></span></button>
+                <button class="btn btn-default" data-dir="up" onclick="setQuantity('up');"><span class="fa fa-plus"></span></button>
               </span>
             </div>
           </div>
           <div class="col-xs button-cart">
-            <button class="btn btn-lg" style="color: white; background-color: #ff3945; border-radius: 8px; box-shadow: none;">
+            <button class="btn btn-md" style="color: white; background-color: #ff3945; border-radius: 8px; box-shadow: none;">
               <i class="fa fa-shopping-cart" style="color:white"></i> Thêm vào giỏ hàng</button>
             </div>
-          </div>          
+          </div>
       </div>
 
     </div>
@@ -69,7 +69,7 @@
       <div>
         <br>
         <strong>Trong hộp có: </strong> <br>
-        <p>Sạc, cáp, sách hướng dẫn sử dụng, que lấy sim</p>
+        <p>{{product.boxing}}</p>
         <strong>Mobistore cam kết: </strong> <br>
         <ul class="list-policy" style="margin-left: 2px; padding-left: 0px">
           <li><img src="https://img.icons8.com/nolan/64/000000/warranty-card.png" height="23px" width="23px"></a>Hàng chính hãng</li>
@@ -84,54 +84,37 @@
   <br>
   <div class="row">
     <div class="col-8 col-lg-8">
-      <h4>ĐẶC ĐIỂM NỔI BẬT</h4> <hr> 
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="carousel-image" src="https://images.fpt.shop/unsafe/fit-in/840x840/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2019/5/16/636936200693427002_Mo-ta-san-pham-galaxy-a10-1.JPG" alt="detail-a" style="width:100%;">
+      <h4>Đặc điểm nổi bật của {{product.title}}</h4>
+      <hr>
+      <div class="product-description">
+        <p>{{product.title}}</p>
+        Mô tả chi tiết của sản phẩm gì đó ở đây
+      </div>
+      <h4>Bình luận của khách hàng</h4>
+      <div class="comments">
+        <form method="POST" onsubmit="return postComment();">
+          <div class="tlt-cmt">
+            <div class="comment-name">
+              Tên của bạn:
+              <input type="text" id="txt-name">
+            </div>
+            <textarea id="txt-editor" class="txt-comment"
+              placeholder="Mời bạn để lại bình luận..." onclick="cmtaddcommentclick();"
+              onkeyup="cmtaddcommentclick();"></textarea>
           </div>
-          
-          <div class="carousel-item">
-            <img class="carousel-image" src="https://images.fpt.shop/unsafe/fit-in/840x840/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2019/5/16/636936200693427002_Mo-ta-san-pham-galaxy-a10-4.JPG" alt="detail-b" style="width:100%;">
-          </div>
-          
-          <div class="carousel-item">
-            <img class="carousel-image" src="https://images.fpt.shop/unsafe/fit-in/840x840/filters:quality(90):fill(white)/cdn.fptshop.com.vn/Uploads/Originals/2019/5/16/636936200693427002_Mo-ta-san-pham-galaxy-a10-2.JPG" alt="detail-c" style="width:100%;">
-          </div>
-        </div>
-        
-        <!-- Left and right controls -->
-        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </a>
-
-        <h6>Đánh giá chi tiết Samsung Galaxy A10</h6>
-        <div class="product-descriptions">  
-          a b c<br><br><br>
-        </div>
+          <button type="submit" class="btn btn-primary btn-comment">Gửi</button>
+        </form>
+        {{> comment comments}}
       </div>
     </div>
     <div class="specification-detail col-4 col-lg-4">
       <h4>Thông số kỹ thuật </h4> <hr>
       <ul>
-        <li><label>Màn hình:</label> <span>6.2 inches, 720 x 1520 Pixels</span></li>
-        <li><label>Camera trước:</label> <span>5.0 MP</span></li>
-        <li><label>Camera sau:</label> <span>13.0MP</span></li>
-        <li><label>RAM:</label> <span></span>2GB</li>
-        <li><label>Bộ nhớ trong:</label> <span>32GB</span></li>
+        {{#each product.specification}}
+          <li><label>{{@key}}:</label> <span>{{this}}</span></li>
+        {{/each}}
       </ul>
     </div>
   </div>
   <br>
-</div> 
+</div>
