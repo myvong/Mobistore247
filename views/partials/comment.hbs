@@ -1,0 +1,12 @@
+<div>
+    <div id="total-comment">{{this.length}} bình luận</div>
+    <ul class="list-comment">
+        {{# each this}}
+            <li class="comment">
+                <div class="comment-username">{{this.username}}</div>
+                <div class="comment-content">{{this.comment}}</div>
+                <div class="comment-time">{{this.time}}</div>
+            </li>
+        {{/each}}
+    </ul>
+</div>
