@@ -1,12 +1,14 @@
 <div class="row mb-2">
     {{# each products}}
         <div class="col-sm-6 col-md-3 thumbnail pb-3">
-        <img src="{{this.imageUrl}}" class="lazy-img">
-        <div class="caption">
+        <a href="/{{../type}}/{{this._id}}">
+            <img src="{{this.imageUrl}}" class="lazy-img">
+        {{!-- <div class="caption"> --}}
             <h6>{{this.title}}</h6>
-            <p class="price">{{this.price}}d</p>
-            <div class="specification">{{this.description}}</div>
-        </div>
+        </a>
+        <p class="price">{{this.price}}d</p>
+        <div class="specification">{{this.description}}</div>
+        {{!-- </div> --}}
     </div>
     {{/each}}
 </div>

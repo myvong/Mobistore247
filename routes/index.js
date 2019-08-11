@@ -11,6 +11,8 @@ router.post('/register', accountCtrl.registerAccount);
 // router.get('/phone', productCtrl.getProductByType);
 router.get('/phone/:id', productCtrl.getProductById);
 
+router.get('/phone', productCtrl.getPhones);
+
 router.get('/', productCtrl.getAllProduct);
 
 
