@@ -1,11 +1,11 @@
 <div>
     <div id="total-comment">{{this.length}} bình luận</div>
-    <ul class="list-comment">
+    <ul id="list-comment" class="list-comment">
         {{# each this}}
             <li class="comment">
                 <div class="comment-username">{{this.username}}</div>
                 <div class="comment-content">{{this.comment}}</div>
-                <div class="comment-time">{{this.time}}</div>
+                <div class="comment-time">{{this.createdAt}}</div>
             </li>
         {{/each}}
     </ul>

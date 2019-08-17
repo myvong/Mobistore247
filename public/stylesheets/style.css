@@ -103,7 +103,7 @@ body
 
 .phone-container
 {
-  margin-right: 0px;
+  /* margin-right: 0px; */
   background-color: #fff;
 }
 
@@ -246,6 +246,47 @@ body
   max-width: 90px;
 }
 
-input:focus {
-  background-color: red;
+#txt-editor
+{
+  width: 100%;
+}
+
+.list-comment
+{
+  padding-inline-start: 0px;
+}
+
+.comment-username
+{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.comment-time
+{
+  font-size: 13px;
+  color: gray;
+}
+
+.list-comment li
+{
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+
+#total-comment
+{
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.btn-comment
+{
+  float: right;
+}
+
+.cmt-username
+{
+  margin-bottom: 10px;
 }

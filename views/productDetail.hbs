@@ -34,9 +34,9 @@
         <strong id="promo-title">Khuyến mãi đặc biệt (SL có hạn)</strong>
         <div class="promo-container">
           <ul class="list-promo">
-            <li>Trả góp 0%</li>
-            <li>Giảm thêm đến 150,000đ khi thanh toán qua Momo</li>
-            <li>Giảm 50% Sim Alo Max 90 Viettel khi mua kèm máy</li>
+            {{# each product.promotion}}
+              <li>{{this}}</li>
+            {{/each}}
           </ul>
         </div>
       </div>
@@ -88,19 +88,20 @@
       <hr>
       <div class="product-description">
         <p>{{product.title}}</p>
-        Mô tả chi tiết của sản phẩm gì đó ở đây
+        {{product.description}}
       </div>
       <h4>Bình luận của khách hàng</h4>
       <div class="comments">
-        <form method="POST" onsubmit="return postComment();">
+        <form method="POST" onsubmit="return postComment(event)">
           <div class="tlt-cmt">
-            <div class="comment-name">
+            <div class="cmt-username">
               Tên của bạn:
-              <input type="text" id="txt-name">
+              <input type="text" id="input-name" placeholder="Nhập tên của bạn"/>
             </div>
-            <textarea id="txt-editor" class="txt-comment"
-              placeholder="Mời bạn để lại bình luận..." onclick="cmtaddcommentclick();"
-              onkeyup="cmtaddcommentclick();"></textarea>
+            <div class="cmt-content">
+              Bình luận của bạn:
+              <textarea id="txt-editor" class="txt-comment" placeholder="Mời bạn để lại bình luận..."></textarea>
+            </div>
           </div>
           <button type="submit" class="btn btn-primary btn-comment">Gửi</button>
         </form>
@@ -110,7 +111,7 @@
     <div class="specification-detail col-4 col-lg-4">
       <h4>Thông số kỹ thuật </h4> <hr>
       <ul>
-        {{#each product.specification}}
+        {{# each product.specification}}
           <li><label>{{@key}}:</label> <span>{{this}}</span></li>
         {{/each}}
       </ul>

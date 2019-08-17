@@ -1,5 +1,7 @@
 const Product = require('../models/product');
 const Comment = require('../models/comment');
+const moment = require('moment');
+const tz = require('moment-timezone');
 
 exports.getAllProduct = async (req, res, next) => {
     var phoneRows = []
@@ -23,13 +25,13 @@ exports.getAllProduct = async (req, res, next) => {
         res.render('error', error);
     });
     res.render('index', {phones: phoneRows, laptops: laptopRows});
-
 }
 
 exports.getProductById = async (req, res, next) => {
     const product = await Product.findOne({
         _id: req.params.id,
-        status: true
+        category: req.params.type,
+        status: true //find only available product 
     }).then((product) => product)
     .catch((error) => {
         console.log(error);
@@ -42,28 +44,59 @@ exports.getProductById = async (req, res, next) => {
         });
         return;
     }
+
     const comments = await Comment.find({
         product_id: product._id,
         status: true
     },
     null, {
-        sort: 'createdAt'
-    }).populate("user_id").then((comments) => comments);
-    res.render('productDetail', {
+        sort: { 'createdAt': -1 },
+    }).then((comments) => comments);
+    res.render('productDetail', { //in views
         product: product,
-        comments: [{
-            username: 'vkmy',
-            comment: 'Sản phẩm này là gì?',
-            time: '1 ngày trước'
-        }, {
-            username: 'tqminh',
-            comment: 'Sản phẩm tốt',
-            time: '1 tháng trước'
-        }]
-        // comments: comments
+        comments: comments
     });
 }
 
-exports.getPhones = async (req, res, next) => {
+exports.getProducstByType = async (req, res, next) => {
+    const title = {
+        'phone': 'điện thoại',
+        'laptop': 'laptop',
+        'tablet': 'máy tính bảng',
+        'camera': 'máy ảnh',
+        'accessories': 'phụ kiện',
+    }
+    const type = req.params.type;
+    var productRows = []
+    let message = "";
+    await Product.find({
+        category: type
+    }).then((products) => {
+        message = "Có " + products.length + " " + title[type];
+        for (var i = 0; i < products.length; i += 4) {
+            productRows.push(products.slice(i, i + 4));
+        }
+    }).catch((error) => {
+        res.render('error', error);
+    });
+    // sử dụng template 'productList' dể render ra browser
+    res.render('productList', { products: productRows, message: message });
+}
 
+exports.searchProducts = async (req, res, next) => {
+    let message = "";
+    let productRows = [];
+    await Product.find({
+        title: new RegExp(req.query.keyword, "i") //find all products containing keyword
+    }).then((products) => {
+        if (products.length == 0) {
+            message = 'Rất tiếc chúng tôi không tìm thấy sản phẩm nào với từ khóa \"' + req.query.keyword + '\"';
+            return;
+        }
+        message = "Tìm thấy " + products.length + " kết quả";
+        for (var i = 0; i < products.length; i += 4) {
+            productRows.push(products.slice(i, i + 4));
+        }
+    })
+    res.render('productList', { products: productRows, message: message });
 }

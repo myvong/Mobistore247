@@ -1,23 +1,23 @@
 <div class="container">
   <div class="product-category">
     <h2>
-      <a href="phone.html" title="Điện thoại hot nhất">Điện thoại hot nhất</a>
+      <a href="/phone" title="Điện thoại hot nhất">Điện thoại hot nhất</a>
     </h2>
   </div>
   <div class="product-container mb-3">
     {{# each phones}}
-      {{> productrow products=this type='phone'}}
+      {{> productrow products=this}}
     {{/each}}
   </div>
   <div class="product-category">
     <h2>
-      <a href="laptop.html" title="Laptop hot nhất">Laptop hot nhất</a>
+      <a href="/laptop" title="Laptop hot nhất">Laptop hot nhất</a>
     </h2>
   </div>
 
   <div class="product-container">
     {{# each laptops}}
-      {{> productrow products=this type='laptop'}}
+      {{> productrow products=this}}
     {{/each}}
   </div>
 </div>

@@ -9,6 +9,8 @@ const accountSchema = mongoose.Schema({
     phoneNumber: {type: String, require: true},
     role: {type: String, require: true},
     status: {type: Boolean, require: true}
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Account', accountSchema);

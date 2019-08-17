@@ -74,17 +74,70 @@ function onJsonReady(json){
     return true;
 }
 
-async function postComment(event, productId) {
-    console.log(productId);
-    return false;
+function formatTime(time) {
+    datetime = new Date(time)
+    return  datetime.getDate() + "/" + 
+            (datetime.getMonth() + 1) + "/" +
+            datetime.getFullYear() + " " +
+            datetime.getHours() + ":" +
+            datetime.getMinutes() + ":" +
+            datetime.getSeconds()
+}
+
+async function postComment(event) {
     event.preventDefault();
-    var username = document.getElementById("input-name").value;
-    var commentContent = document.getElementById("txt-editor").value;
-    if (!username) {
-        return false;
+    var pid = document.URL.substring(document.URL.lastIndexOf('/') + 1);
+    var username = document.getElementById("input-name");
+    var commentContent = document.getElementById("txt-editor");
+    const result = await fetch('http://localhost:3000/comment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            product_id: pid,
+            username: username.value,
+            comment: commentContent.value,
+            status: 1 
+        })
+    });
+    username.value = '';
+    commentContent.value = '';
+    const message = await result.text();
+    if (result.status == 201) {
+        const result = await fetch('http://localhost:3000/comment?pid=' + pid);
+        if (result.status != 200) {
+            return;
+        }
+        const comments = await result.json();
+        const commentList = document.getElementById('list-comment');
+        const totalComments = document.getElementById('total-comment');
+        totalComments.innerHTML = comments.length + " bình luận";
+        commentList.innerHTML='';
+        for (comment of comments) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "comment");
+            
+            var divNode = document.createElement("div");
+            divNode.setAttribute("class", "comment-username");
+            divNode.textContent = comment.username;
+            li.appendChild(divNode);
+
+            divNode = document.createElement("div");
+            divNode.setAttribute("class", "comment-content");
+            divNode.textContent = comment.comment;
+            li.appendChild(divNode);
+
+            divNode = document.createElement("div");
+            divNode.setAttribute("class", "comment-time");
+            divNode.textContent = formatTime(comment.createdAt);
+            li.appendChild(divNode);
+
+            commentList.appendChild(li);
+        }
     }
-    if (!commentContent) {
-        return false;
+    else {
+        alert(message);
     }
-    var productId = document.getElementById
+    return false;
 }
