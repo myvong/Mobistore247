@@ -46,7 +46,7 @@ exports.getProductById = async (req, res, next) => {
     }
 
     const comments = await Comment.find({
-        product_id: product._id,
+        productId: product._id,
         status: true
     },
     null, {

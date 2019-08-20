@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const commentSchema = mongoose.Schema({
-  product_id: {
+  productId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Product',
     require: true

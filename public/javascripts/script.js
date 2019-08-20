@@ -95,7 +95,7 @@ async function postComment(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            product_id: pid,
+            productId: pid,
             username: username.value,
             comment: commentContent.value,
             status: 1 

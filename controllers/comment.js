@@ -17,7 +17,7 @@ exports.postComment = async (req, res, next) => {
 
 exports.getComments = async (req, res, next) => {
   const comments = await Comment.find({
-    product_id: req.query.pid,
+    productId: req.query.pid,
     status: true
   },
     null, {
