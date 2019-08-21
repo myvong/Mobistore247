@@ -1,7 +1,6 @@
 const Product = require('../models/product');
 const Comment = require('../models/comment');
-const moment = require('moment');
-const tz = require('moment-timezone');
+var createError = require('http-errors');
 
 exports.getAllProduct = async (req, res, next) => {
     var phoneRows = []
@@ -28,10 +27,14 @@ exports.getAllProduct = async (req, res, next) => {
 }
 
 exports.getProductById = async (req, res, next) => {
+    if (!['phone', 'laptop', 'tablet', 'camera', 'accessories'].includes(req.params.type)) {
+        next(createError(404));
+        return;
+    }
     const product = await Product.findOne({
         _id: req.params.id,
         category: req.params.type,
-        status: true //find only available product 
+        status: true //find only available product
     }).then((product) => product)
     .catch((error) => {
         console.log(error);
@@ -67,6 +70,10 @@ exports.getProducstByType = async (req, res, next) => {
         'accessories': 'phụ kiện',
     }
     const type = req.params.type;
+    if ( !title.hasOwnProperty(type) ) {
+        next(createError(404));
+        return;
+    }
     var productRows = []
     let message = "";
     await Product.find({

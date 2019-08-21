@@ -1,24 +1,23 @@
 var express = require('express');
 var router = express.Router();
 const productCtrl = require('../controllers/product');
-const accountCtrl = require('../controllers/account');
 const commentCtrl = require('../controllers/comment');
-/* GET home page. */
+const cartCtrl = require('../controllers/cart');
 
+router.get('/', productCtrl.getAllProduct);
 
-router.get('/login', accountCtrl.renderLoginPage);
-router.get('/register', accountCtrl.renderRegisterPage);
-router.post('/register', accountCtrl.registerAccount);
-
-router.post('/comment', commentCtrl.postComment);
-router.get('/comment', commentCtrl.getComments);
+router.route('/comment')
+  .post(commentCtrl.postComment)
+  .get(commentCtrl.getComments)
 
 router.get('/search', productCtrl.searchProducts);
+router.route('/checkout')
+  .get(cartCtrl.renderCart)
+  .post(cartCtrl.checkout)
+
 
 router.get('/:type', productCtrl.getProducstByType);
 router.get('/:type/:id', productCtrl.getProductById);
-
-router.get('/', productCtrl.getAllProduct);
 
 
 module.exports = router;

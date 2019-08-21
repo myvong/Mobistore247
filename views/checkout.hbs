@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h2 id="cart-title"></h2>
+    <form id="cart-detail" onsubmit="return false">
+        {{!-- <hr> --}}
+    </form>
+
+    <template id="template-cart-item" style="visibility: hidden">
+        <div class="row shopping-cart-item">
+            <div id="product-name" class="col-md-6"></div>
+            <div id="product-price" class="col-md-2" style="font-weight: bold"></div>
+            <div class="col-md-2" style="padding: 0">
+                <div class="input-group number-spinner">
+                    <span class="input-group-btn">
+                        <button id="quantity-dwn" class="btn btn-default fa fa-minus" data-dir="dwn"></button>
+                    </span>
+                    <div>
+                        <input type="text" id="quantity" class="form-control text-center" style="padding: 0px" value=1>
+                    </div>
+                    <span class="input-group-btn">
+                        <button id="quantity-up" class="btn btn-default fa fa-plus" data-dir="up"></button>
+                    </span>
+                </div>
+            </div>
+            <button type="button" id="delete-item" class="col-md-1 btn btn-danger" style=>Xóa</button>
+        </div>
+    </template>
+</div>

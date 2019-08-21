@@ -1,14 +1,14 @@
-<div class="container phone-container">
-  <h4 class="name-phone">{{product.title}}</h4>
+<div class="container product-container">
+  <h4 id="product-name">{{product.title}}</h4>
   <hr>
   <div class="row">
-    <div class="col-lg-4 phone">
-      <img id="img-phone" src="{{product.imageUrl}}" alt="dt">
+    <div class="col-lg-4">
+      <img id="product-img" src="{{product.imageUrl}}" alt="dt">
     </div>
     
     <div class="col-lg-5 area-buy" bgcolor="#fff" style="margin-left: 10px; padding-right: 5px;">
       <div class="area-price">
-        <strong>{{product.price}}₫</strong>
+        <strong id='price'>{{product.price}}₫</strong>
       </div>
       <br>
       <!-- Trigger/Open The Modal -->
@@ -46,18 +46,23 @@
           <div class="col-xs-4" style="padding: 0">
             <div class="input-group number-spinner">
               <span class="input-group-btn">
-                <button class="btn btn-default" data-dir="dwn" onclick="setQuantity('down');"><span class="fa fa-minus"></span></button>
+                <button id="quantity-dwn" class="btn btn-default fa fa-minus" data-dir="dwn"></button>
               </span>
               <div>
-                <input type="text" id="quantity" class="form-control text-center" style="padding: 0px" value="1">
+                <input type="text" id="quantity" class="form-control text-center" style="padding: 0px" value=1>
               </div>
               <span class="input-group-btn">
-                <button class="btn btn-default" data-dir="up" onclick="setQuantity('up');"><span class="fa fa-plus"></span></button>
+                <button id="quantity-up" class="btn btn-default fa fa-plus" data-dir="up"></button>
               </span>
             </div>
           </div>
           <div class="col-xs button-cart">
-            <button class="btn btn-md" style="color: white; background-color: #ff3945; border-radius: 8px; box-shadow: none;">
+            <button
+              type="button"
+              class="btn btn-md"
+              style="color: white; background-color: #ff3945; border-radius: 8px; box-shadow: none;"
+              onclick="addCart(event)"
+            >
               <i class="fa fa-shopping-cart" style="color:white"></i> Thêm vào giỏ hàng</button>
             </div>
           </div>

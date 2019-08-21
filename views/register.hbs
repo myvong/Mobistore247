@@ -1,6 +1,14 @@
 <div class="container">
   <div id="register" class="col-md-6 offset-md-3">
-    <form id="register-form" class="form-horizontal" onsubmit="return validateRegister()" method="POST" action="/register">
+    {{#if hasErrors}}
+    <div class="alert alert-danger">
+      {{#each messages }}
+      <p>{{this}}</p>
+      {{/each}}
+    </div>
+    {{/if}}
+    <form id="register-form" class="form-horizontal"
+      method="POST" action="/register">
     <fieldset>
 
     <!-- Form Name -->
@@ -59,6 +67,7 @@
       </div>
     </div>
 
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
     <!-- Button -->
     <div class="form-group">
         <button id="btnregister"

@@ -101,7 +101,7 @@ body
   background-color: #884EA0;
 }
 
-.phone-container
+.product-container
 {
   /* margin-right: 0px; */
   background-color: #fff;
@@ -112,7 +112,7 @@ body
   margin-right: 5px;
 }
 
-#img-phone
+#product-img
 {
   height: 350px;
   width: 370px;
@@ -289,4 +289,25 @@ body
 .cmt-username
 {
   margin-bottom: 10px;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 20px;
+    padding: 3px 7px;
+    margin-bottom: 12px;
+    margin-left: -20px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 15px;
+}
+
+#shopping-cart {
+  padding-right: 0px;
 }
