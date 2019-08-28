@@ -286,11 +286,6 @@ body
   float: right;
 }
 
-.cmt-username
-{
-  margin-bottom: 10px;
-}
-
 .badge {
     display: inline-block;
     min-width: 20px;
@@ -310,4 +305,12 @@ body
 
 #shopping-cart {
   padding-right: 0px;
+}
+
+.product-description {
+  text-align: justify;
+}
+
+#frm-comment>* {
+  margin-bottom: 10px;
 }

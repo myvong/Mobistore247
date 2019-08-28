@@ -97,18 +97,18 @@
       <hr>
       <h4>Bình luận của khách hàng</h4>
       <div class="comments">
-        <form method="POST" onsubmit="return postComment(event)">
-          <div class="tlt-cmt">
-            <div class="cmt-username">
-              Tên của bạn:
-              <input type="text" id="input-name" placeholder="Nhập tên của bạn"/>
-            </div>
-            <div class="cmt-content">
-              Bình luận của bạn:
-              <textarea id="txt-editor" class="txt-comment" placeholder="Mời bạn để lại bình luận..."></textarea>
-            </div>
+        <form id="frm-comment" method="POST" onsubmit="return postComment(event)" class="row">
+          <div class="cmt-username row col-md-12">
+            <label class="col-md-2">Tên của bạn:</label>
+            <input type="text" id="input-name" class="col-md-3" placeholder="Nhập tên của bạn"/>
           </div>
-          <button type="submit" class="btn btn-primary btn-comment">Gửi</button>
+          <div class="cmt-content row col-md-12">
+            <label class="col-md-2">Bình luận:</label>
+            <textarea id="txt-editor" class="col-md-10 txt-comment" style="width: 90%; display: inline; vertical-align: top" placeholder="Mời bạn để lại bình luận..."></textarea>
+          </div>
+          <div class="row col-md-12">
+            <button type="submit" class="btn btn-primary btn-comment col-md-1 offset-md-11">Gửi</button>
+          </div>
         </form>
         {{> comment comments}}
       </div>
